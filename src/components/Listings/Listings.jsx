@@ -26,7 +26,7 @@ const Listings = () => {
         <div className={classes.container}>
             <Typography variant="h5">What's around you?</Typography>
             <FormControl className={classes.formControl}>
-                <InputLabel>Type</InputLabel>
+                <InputLabel id="type">Type</InputLabel>
                 <Select id="type" value={type} onChange={(e) => setType(e.target.value)}>
                     <MenuItem value="restaurants">restaurants</MenuItem>
                     <MenuItem value="hotels">hotels</MenuItem>
@@ -34,7 +34,7 @@ const Listings = () => {
                 </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
-                <InputLabel>Rating</InputLabel>
+                <InputLabel id="rating">Rating</InputLabel>
                 <Select id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
                     <MenuItem value="all">all</MenuItem>
                     <MenuItem value="above3">above 3.0</MenuItem>
@@ -42,7 +42,7 @@ const Listings = () => {
                     <MenuItem value="above4.5">above 4.5</MenuItem>
                 </Select>
             </FormControl>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} className={classes.list}>
                 {places?.map((place, index) => (
                     <Grid item xs={10}>
                         <PlaceInfo place={place}/>
