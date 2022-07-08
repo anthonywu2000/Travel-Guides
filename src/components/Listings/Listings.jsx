@@ -4,23 +4,10 @@ import PlaceInfo from "../PlaceInfo/PlaceInfo";
 
 import useStyles from './styles';
 
-const Listings = () => {
+const Listings = ({ places }) => {
     const classes = useStyles();
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
-
-    const places = [
-        { name: "Warsaw Philharmonic" },
-        { name: "TCU Hall Texas" },
-        { name: "White House USA" },
-        { name: "Warsaw Philharmonic" },
-        { name: "TCU Hall Texas" },
-        { name: "White House USA" },
-        { name: "Warsaw Philharmonic" },
-        { name: "TCU Hall Texas" },
-        { name: "White House USA" }
-    ];
-
 
     return (
         <div className={classes.container}>
