@@ -39,7 +39,7 @@ const App = () => {
                 <Listings places={places} />
             </Grid>
             <Grid item xs={12} md={8}>
-                <Map setCoordinates={setCoordinates} setBoundary={setBoundary} coordinates={coordinates} />
+                <Map setCoordinates={setCoordinates} setBoundary={setBoundary} coordinates={coordinates} places={places} />
             </Grid>
         </Grid>
         </>

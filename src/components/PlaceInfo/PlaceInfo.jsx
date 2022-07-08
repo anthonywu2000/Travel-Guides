@@ -3,7 +3,7 @@ import { Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chi
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PhoneIcon from '@material-ui/icons/Phone';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-// import Rating from '@material-ui/lab/Rating';
+import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles.js';
 
@@ -20,6 +20,10 @@ const PlaceInfo = ({ place }) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5">{place.name}</Typography>
+                <Box display="flex" justifyContent="space-between">
+                    <Rating size="small" value={Number(place?.rating)} precision={0.5} readOnly />
+                    <Typography gutterBottom variant="subtitle1">{place?.rating}/5.0</Typography>
+                </Box>
                 <Box display="flex" justifyContent="space-between">
                     <Typography component="legend">Price Level</Typography>
                     <Typography gutterBottom variant="subtitle1">{place?.price_level}</Typography>
@@ -54,10 +58,10 @@ const PlaceInfo = ({ place }) => {
                 )}
             </CardContent>
             <CardActions>
-                {place?.reserve_info?.url && 
-                (<Button size="small" color="primary" onClick={() => window.open(place?.reserve_info?.url, '_blank')}>
-                    Researve here
-                 </Button>
+                {place?.reserve_info?.url && (
+                    <Button size="small" color="primary" onClick={() => window.open(place?.reserve_info?.url, '_blank')}>
+                        Researve here
+                    </Button>
                 )}
                 <Button size="small" color="primary" onClick={() => window.open(place?.website, '_blank')}>
                     Visit Website
