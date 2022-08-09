@@ -8,7 +8,12 @@ import Rating from '@material-ui/lab/Rating';
 import useStyles from './styles.js';
 
 const PlaceInfo = ({ place }) => {
-
+    // if (selected) {
+    //     refProp?.current?.scrollIntoView({
+    //         behavior: 'smooth',
+    //         block: 'start'
+    //     });
+    // }
     const classes = useStyles();
 
     return (
@@ -22,7 +27,7 @@ const PlaceInfo = ({ place }) => {
                 <Typography gutterBottom variant="h5">{place.name}</Typography>
                 <Box display="flex" justifyContent="space-between">
                     <Rating size="small" value={Number(place?.rating)} precision={0.5} readOnly />
-                    <Typography gutterBottom variant="subtitle1">{place?.rating}/5.0</Typography>
+                    <Typography gutterBottom variant="subtitle1">from {place?.num_reviews} reviews</Typography>
                 </Box>
                 <Box display="flex" justifyContent="space-between">
                     <Typography component="legend">Price Level</Typography>

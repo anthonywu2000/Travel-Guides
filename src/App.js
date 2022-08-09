@@ -9,6 +9,7 @@ import Map from './components/Map/Map';
 const App = () => {
 
     const [places, setPlaces] = useState([]);
+    const [childClicked, setChildClicked] = useState(null);
     // we need these to render map at right location and also pass to api call
     const [coordinates, setCoordinates] = useState({ lat: 25.0409, lng: 121.5720 }); 
     const [boundary, setBoundary] = useState(null); 
@@ -20,13 +21,26 @@ const App = () => {
     //     });
     // }, []);
 
+    // type of entertainment to show on map
+    const [type, setType] = useState('restaurants');
+    // get places of specific rating dropdowns
+    const [rating, setRating] = useState('');
+    const [filtered, setFiltered] = useState([]);
+
+    useEffect(() => {
+        const filteredPlaces = places.filter((place) => Number(place?.rating) > rating);
+        console.log(filteredPlaces)
+        setFiltered(filteredPlaces);
+    }, [rating])
+
     useEffect(() => {
         console.log(coordinates, boundary)
 
-        getPlaceData(boundary?.ne, boundary?.sw).then((data) => {
+        getPlaceData(type, boundary?.ne, boundary?.sw).then((data) => {
             setPlaces(data);
+            setFiltered([]);
         })
-    }, [coordinates, boundary]) // add these arguments to make useEffect re-run everytime the map changes
+    }, [type, coordinates, boundary]) // add these arguments to make useEffect re-run everytime the map changes
 
     console.log(places)
 
@@ -36,10 +50,10 @@ const App = () => {
         <Header />
         <Grid container spacing={3} style={{ width: '100%'}}>
             <Grid item xs={12} md={4}>
-                <Listings places={places} />
+                <Listings places={filtered?.length ? filtered : places} childCliked={childClicked} type={type} setType={setType} rating={rating} setRating={setRating} />
             </Grid>
             <Grid item xs={12} md={8}>
-                <Map setCoordinates={setCoordinates} setBoundary={setBoundary} coordinates={coordinates} places={places} />
+                <Map setCoordinates={setCoordinates} setBoundary={setBoundary} coordinates={coordinates} places={filtered?.length ? filtered : places} setChildClicked={setChildClicked} />
             </Grid>
         </Grid>
         </>
