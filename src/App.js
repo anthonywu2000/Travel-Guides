@@ -35,19 +35,21 @@ const App = () => {
 
     useEffect(() => {
         console.log(coordinates, boundary)
-
-        getPlaceData(type, boundary?.ne, boundary?.sw).then((data) => {
-            setPlaces(data);
-            setFiltered([]);
-        })
-    }, [type, coordinates, boundary]) // add these arguments to make useEffect re-run everytime the map changes
+        // remove empty named and reviewed restaurants
+        if (boundary?.sw && boundary?.ne) {
+            getPlaceData(type, boundary?.ne, boundary?.sw).then((data) => {
+                setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+                setFiltered([]);
+            });
+        }
+    }, [type, boundary]) // add these arguments to make useEffect re-run everytime the map changes
 
     console.log(places)
 
     return (
         <>
         <CssBaseline />
-        <Header />
+        <Header setCoordinates={setCoordinates} />
         <Grid container spacing={3} style={{ width: '100%'}}>
             <Grid item xs={12} md={4}>
                 <Listings places={filtered?.length ? filtered : places} childCliked={childClicked} type={type} setType={setType} rating={rating} setRating={setRating} />

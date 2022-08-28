@@ -36,9 +36,11 @@ const Listings = ({ places, type, setType, rating, setRating }) => { /*childClic
                     <MenuItem value="4.5">above 4.5</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="rating">Cuisine</InputLabel>
-                <Select id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
+
+            {/* TODO */}
+            {/* <FormControl className={classes.formControl}>
+                <InputLabel id="cuisine">Cuisine</InputLabel>
+                <Select id="cuisine" value={cuisine} onChange={(e) => setCuisine(e.target.value)}>
                     <MenuItem value="all">all</MenuItem>
                     <MenuItem value="American">American</MenuItem>
                     <MenuItem value="Chinese">Chinese</MenuItem>
@@ -48,7 +50,8 @@ const Listings = ({ places, type, setType, rating, setRating }) => { /*childClic
                     <MenuItem value="Vegan Options">Vegan Options</MenuItem>
                     <MenuItem value="Vegetarian Friendly">Vegetarian Friendly</MenuItem>
                 </Select>
-            </FormControl>
+            </FormControl> */}
+            
             <Grid container spacing={2} className={classes.list}>
                 {places?.map((place, i) => (
                     <Grid item xs={10} key={i}>
