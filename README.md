@@ -5,12 +5,12 @@ which shows the entertainment cards (ie. restaurants, hotels, attractions) at th
 
 # Technology Stack
 
-Language: JavaScript, HTML, CSS
+Language: JavaScript, HTML, CSS\
 Stack/Tools: React.js, Axios, GoogleMaps API, Material UI
 
 # Screenshots
 
-If you are at Rome.... \
+If you are in Rome.... \
 <img src = "Sample1.png" alt="Sample1" />
 
 or in Vancouver... \
