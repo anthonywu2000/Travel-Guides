@@ -7,7 +7,6 @@ import Rating from '@material-ui/lab/Rating';
 import useStyles from './styles.js';
 
 const Map = ({ setCoordinates, setBoundary, coordinates, places, setChildClicked }) => {
-    // const matches = useMediaQuery('(min-width:600px)'); // this is for mobile view adjustments
     const classes = useStyles();
 
     return (

@@ -4,7 +4,7 @@ import PlaceInfo from "../PlaceInfo/PlaceInfo";
 
 import useStyles from './styles';
 
-const Listings = ({ places, type, setType, rating, setRating }) => { /*childClicked*/
+const Listings = ({ places, type, setType, rating, setRating, cuisine, setCuisine }) => { /*childClicked*/
     const classes = useStyles();
     
     // console.log({ childClicked });
@@ -37,8 +37,7 @@ const Listings = ({ places, type, setType, rating, setRating }) => { /*childClic
                 </Select>
             </FormControl>
 
-            {/* TODO */}
-            {/* <FormControl className={classes.formControl}>
+            {/* <FormControl className={classes.formControl} disabled={type==="restaurants" ? false : true}>
                 <InputLabel id="cuisine">Cuisine</InputLabel>
                 <Select id="cuisine" value={cuisine} onChange={(e) => setCuisine(e.target.value)}>
                     <MenuItem value="all">all</MenuItem>

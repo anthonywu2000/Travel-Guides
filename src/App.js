@@ -25,6 +25,8 @@ const App = () => {
     const [type, setType] = useState('restaurants');
     // get places of specific rating dropdowns
     const [rating, setRating] = useState('');
+    // get restauerants of specific cuisine
+    const [cuisine, setCuisine] = useState('');
     const [filtered, setFiltered] = useState([]);
 
     useEffect(() => {
@@ -52,10 +54,25 @@ const App = () => {
         <Header setCoordinates={setCoordinates} />
         <Grid container spacing={3} style={{ width: '100%'}}>
             <Grid item xs={12} md={4}>
-                <Listings places={filtered?.length ? filtered : places} childCliked={childClicked} type={type} setType={setType} rating={rating} setRating={setRating} />
+                <Listings 
+                  places={filtered?.length ? filtered : places} 
+                  childCliked={childClicked} 
+                  type={type} 
+                  setType={setType} 
+                  rating={rating} 
+                  setRating={setRating} 
+                  cuisine={cuisine} 
+                  setCuisine={setCuisine} 
+                />
             </Grid>
             <Grid item xs={12} md={8}>
-                <Map setCoordinates={setCoordinates} setBoundary={setBoundary} coordinates={coordinates} places={filtered?.length ? filtered : places} setChildClicked={setChildClicked} />
+                <Map 
+                  setCoordinates={setCoordinates} 
+                  setBoundary={setBoundary} 
+                  coordinates={coordinates} 
+                  places={filtered?.length ? filtered : places} 
+                  setChildClicked={setChildClicked} 
+                />
             </Grid>
         </Grid>
         </>

@@ -1,3 +1,34 @@
+# Travel Guides
+
+Used by all travel lovers to search for the best restaurants, hotels, and attractions in their travel destination. The application includes an embedded Google Map
+which shows the entertainment cards (ie. restaurants, hotels, attractions) at their travel destination.
+
+# Technology Stack
+
+Language: JavaScript, HTML, CSS
+Stack/Tools: React.js, Axios, GoogleMaps API, Material UI
+
+# Screenshots
+
+If you are at Rome.... \
+<img src = "Sample1.png" alt="Sample1" />
+
+or in Vancouver... \
+<img src = "Sample2.png" alt="Sample2" />
+
+# Credits
+
+Thanks to jsmastery.pro for the CSS theme ideas. 
+
+# Some drawbacks....
+
+Note that the application is supposed to launch with Google Maps at the current location of your browser, if your browser cannot detect your location, please 
+allow it in order for it to run at real-time. The project currently has a default location set at `lat: 25.0409, lng: 121.5720`.
+
+# How to run?
+
+Run with `yarn start` and the browser will automatically launch [http://localhost:3000](http://localhost:3000).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
