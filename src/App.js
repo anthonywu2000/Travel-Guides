@@ -25,18 +25,15 @@ const App = () => {
     const [type, setType] = useState('restaurants');
     // get places of specific rating dropdowns
     const [rating, setRating] = useState('');
-    // get restauerants of specific cuisine
-    const [cuisine, setCuisine] = useState('');
+
     const [filtered, setFiltered] = useState([]);
 
     useEffect(() => {
         const filteredPlaces = places.filter((place) => Number(place?.rating) > rating);
-        console.log(filteredPlaces)
         setFiltered(filteredPlaces);
     }, [rating])
 
     useEffect(() => {
-        console.log(coordinates, boundary)
         // remove empty named and reviewed restaurants
         if (boundary?.sw && boundary?.ne) {
             getPlaceData(type, boundary?.ne, boundary?.sw).then((data) => {
@@ -45,8 +42,6 @@ const App = () => {
             });
         }
     }, [type, boundary]) // add these arguments to make useEffect re-run everytime the map changes
-
-    console.log(places)
 
     return (
         <>
@@ -60,9 +55,7 @@ const App = () => {
                   type={type} 
                   setType={setType} 
                   rating={rating} 
-                  setRating={setRating} 
-                  cuisine={cuisine} 
-                  setCuisine={setCuisine} 
+                  setRating={setRating}
                 />
             </Grid>
             <Grid item xs={12} md={8}>

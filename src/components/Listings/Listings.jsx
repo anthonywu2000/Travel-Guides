@@ -4,17 +4,8 @@ import PlaceInfo from "../PlaceInfo/PlaceInfo";
 
 import useStyles from './styles';
 
-const Listings = ({ places, type, setType, rating, setRating, cuisine, setCuisine }) => { /*childClicked*/
+const Listings = ({ places, type, setType, rating, setRating }) => {
     const classes = useStyles();
-    
-    // console.log({ childClicked });
-
-    // const [elRefs, setElRefs] = useState([]);
-
-    // useEffect(() => {
-    //     const refs = Array(places?.length).fill().map((_, i) => elRefs[i] || createRef())
-    //     setElRefs(refs);
-    // }, [places]);
 
     return (
         <div className={classes.container}>

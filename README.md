@@ -16,6 +16,9 @@ If you are in Rome.... \
 or in Vancouver... \
 <img src = "Sample2.png" alt="Sample2" />
 
+or looking for a place to stay in Ulaanbaatar... \
+<img src = "Sample3.png" alt="Sample3" />
+
 # Credits
 
 Thanks to jsmastery.pro for the CSS theme ideas. 
